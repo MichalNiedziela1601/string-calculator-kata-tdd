@@ -15,6 +15,9 @@ public class StringCalculator {
     private List<Integer> parseInput(String input) {
         String separators = "[,\n]";
         String[] numbers = input.split(separators);
+        for(String val : numbers) {
+            if(0 > Integer.valueOf(val)) throw new IllegalArgumentException("Illegal negative number");
+        }
         List<Integer> outputNumbers = new ArrayList<>();
         for(String number : numbers) {
             outputNumbers.add(Integer.valueOf(number));
