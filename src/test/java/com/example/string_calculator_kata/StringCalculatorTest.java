@@ -68,4 +68,12 @@ public class StringCalculatorTest {
         }
     }
 
+    @Test
+    public void givenNumberGreaterThen1000ShouldIgnore() {
+        String input = "1001,3\n4";
+        int expectedResult = 3 + 4;
+        int result = calculator.add(input);
+        assertEquals(expectedResult,result);
+    }
+
 }

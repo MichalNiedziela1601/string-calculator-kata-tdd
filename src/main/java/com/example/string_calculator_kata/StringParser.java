@@ -5,6 +5,8 @@ import java.util.List;
 
 public class StringParser {
 
+    public static int MAX_NUMBER = 1000;
+
     public List<Integer> parseInput(String input) {
         String separators = "[,\n]";
         String[] numbers = input.split(separators);
@@ -21,6 +23,8 @@ public class StringParser {
             if(0 > Integer.valueOf(val)) throw new IllegalArgumentException("Illegal negative number");
         }
     }
+
+
 
 
 }

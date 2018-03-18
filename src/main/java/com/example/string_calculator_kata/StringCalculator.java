@@ -7,7 +7,6 @@ public class StringCalculator {
     public int add(String input) {
         if(input.isEmpty()) return 0;
         List<Integer> parsedNumbers = new StringParser().parseInput(input);
-
         return sumOf(parsedNumbers);
     }
 
