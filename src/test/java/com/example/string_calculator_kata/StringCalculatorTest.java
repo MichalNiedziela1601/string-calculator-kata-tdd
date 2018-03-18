@@ -92,7 +92,7 @@ public class StringCalculatorTest {
 
     @Test
     public void givenSingleCharAsADelimiterThenReturnSUm() {
-        String input = "//#12#4\n4";
+        String input = "//#\n12#4#4";
         int expected = 12 + 4 + 4;
         assertThat(calculator.add(input), equalTo(expected));
     }
