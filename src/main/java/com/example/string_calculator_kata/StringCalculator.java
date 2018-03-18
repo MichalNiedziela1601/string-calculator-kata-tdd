@@ -3,7 +3,7 @@ package com.example.string_calculator_kata;
 public class StringCalculator {
 
     public int add(String input) {
-        int sum = 0;
+        int sum;
         if(input.isEmpty()) return 0;
         if(input.contains(",")) {
             String[] numbers = input.split(",");
