@@ -30,4 +30,12 @@ public class StringCalculatorTest {
         assertEquals(expectedResult,result);
     }
 
+    @Test
+    public void givenTwoNumbersWithCommaDelimiterThenReturnSumOfThisNumbers() {
+        String input = "12,34";
+        int expectedResult = 12 + 34;
+        int result = calculator.add(input);
+        assertEquals(expectedResult,result);
+    }
+
 }
