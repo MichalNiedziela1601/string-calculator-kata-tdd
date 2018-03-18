@@ -22,4 +22,12 @@ public class StringCalculatorTest {
         assertEquals(expectedResult,result);
     }
 
+    @Test
+    public void givenSingleNumberThenReturnValue() {
+        String input = "12";
+        int expectedResult = 12;
+        int result = calculator.add(input);
+        assertEquals(expectedResult,result);
+    }
+
 }
