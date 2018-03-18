@@ -60,7 +60,7 @@ public class StringCalculatorTest {
     public void givenNegativeNumberThenThrowException() {
         String input = "-12,-4";
         try {
-            int result = calculator.add(input);
+            calculator.add(input);
             fail("Should trow IllegalArgumentException");
         } catch (Exception e) {
             assertThat(e.getClass(), equalTo(IllegalArgumentException.class));
@@ -87,6 +87,13 @@ public class StringCalculatorTest {
     public void givenMaxNumberThenReturnSum() {
         String input = "1000,2\n5";
         int expected = 1000 + 2 + 5;
+        assertThat(calculator.add(input), equalTo(expected));
+    }
+
+    @Test
+    public void givenSingleCharAsADelimiterThenReturnSUm() {
+        String input = "//#12#4\n4";
+        int expected = 12 + 4 + 4;
         assertThat(calculator.add(input), equalTo(expected));
     }
 
