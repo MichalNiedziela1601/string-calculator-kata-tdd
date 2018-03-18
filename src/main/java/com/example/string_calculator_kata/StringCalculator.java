@@ -1,17 +1,32 @@
 package com.example.string_calculator_kata;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
 
     public int add(String input) {
-        int sum;
         if(input.isEmpty()) return 0;
-        if(input.contains(",")) {
-            String[] numbers = input.split(",");
-            sum = Integer.valueOf(numbers[0]) + Integer.valueOf(numbers[1]);
-        } else {
-            sum = Integer.valueOf(input);
-        }
+        List<Integer> parsedNumbers = parseInput(input);
 
+        return sumOf(parsedNumbers);
+    }
+
+    private List<Integer> parseInput(String input) {
+        String separators = "[,\n]";
+        String[] numbers = input.split(separators);
+        List<Integer> outputNumbers = new ArrayList<>();
+        for(String number : numbers) {
+            outputNumbers.add(Integer.valueOf(number));
+        }
+        return outputNumbers;
+    }
+
+    private int sumOf(List<Integer> numbers) {
+        int sum = 0;
+        for(int number : numbers) {
+            sum += number;
+        }
         return sum;
     }
 }

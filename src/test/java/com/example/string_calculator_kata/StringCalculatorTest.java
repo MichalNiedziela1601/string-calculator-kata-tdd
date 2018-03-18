@@ -40,8 +40,8 @@ public class StringCalculatorTest {
 
     @Test
     public void givenTwoNumbersWithNewLineDelimiterThenReturnSumOfThisNumbers() {
-        String input = "12\n45";
-        int expectedResult = 12 + 45;
+        String input = "12\n45,2";
+        int expectedResult = 12 + 45 + 2;
         int result = calculator.add(input);
         assertEquals(expectedResult,result);
     }
