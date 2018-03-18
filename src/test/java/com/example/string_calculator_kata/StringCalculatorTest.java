@@ -69,11 +69,25 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void givenNumberGreaterThen1000ShouldIgnore() {
+    public void givenSingleNumberGreaterThen1000ShouldIgnore() {
         String input = "1001,3\n4";
         int expectedResult = 3 + 4;
         int result = calculator.add(input);
         assertEquals(expectedResult,result);
+    }
+
+    @Test
+    public void multipleNumberGreaterThanOneThousandThenIgnore() {
+        String input = "1002,10\n10000,5";
+        int excpected = 10 + 5;
+        assertThat(calculator.add(input), equalTo(excpected));
+    }
+
+    @Test
+    public void givenMaxNumberThenReturnSum() {
+        String input = "1000,2\n5";
+        int expected = 1000 + 2 + 5;
+        assertThat(calculator.add(input), equalTo(expected));
     }
 
 }
