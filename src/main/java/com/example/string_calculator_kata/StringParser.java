@@ -7,24 +7,23 @@ import java.util.regex.Pattern;
 
 public class StringParser {
         private final Pattern patternSingleCustomDelimiter = Pattern.compile("^(//(.)\n).*$");
+        private String defaultSeparator = "[,\n]";
+        private String numbersString;
 
 
     public List<Integer> parseInput(String input) {
-        String separators = "[,\n]";
-        String tempInput = input;
+        numbersString = input;
+        String separator = defaultSeparator;
         Matcher matcher = patternSingleCustomDelimiter.matcher(input);
         if(matcher.matches()) {
-            separators = matcher.group(2);
+            separator = matcher.group(2);
             System.out.println(matcher.group(1).length());
-            tempInput = tempInput.substring(matcher.group(1).length());
+            numbersString = numbersString.substring(matcher.group(1).length());
         }
-        String[] numbers = tempInput.split(separators);
+        String[] numbers = numbersString.split(separator);
         checkNegative(numbers);
-        List<Integer> outputNumbers = new ArrayList<>();
-        for(String number : numbers) {
-            outputNumbers.add(Integer.valueOf(number));
-        }
-        return outputNumbers;
+        return parseAsInteger(numbers);
+
     }
 
     private void checkNegative(String[] numbers) {
@@ -32,6 +31,16 @@ public class StringParser {
             if(0 > Integer.valueOf(val)) throw new IllegalArgumentException("Illegal negative number");
         }
     }
+
+    private List<Integer> parseAsInteger(String[] stringsNumbers) {
+        List<Integer> outputNumbers = new ArrayList<>();
+        for(String number : stringsNumbers) {
+            outputNumbers.add(Integer.valueOf(number));
+        }
+        return outputNumbers;
+    }
+
+
 
 
 
